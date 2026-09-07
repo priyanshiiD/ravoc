@@ -10,13 +10,13 @@
   const howStartBtn    = document.getElementById('explainer-start-how-btn');
   const navStartBtn    = document.getElementById('explainer-start-nav-btn');
 
-  // Stages Definition
+  // Stages Definition (11-13s per stage so viewers can clearly watch each full animation)
   const STAGES = [
     {
       num: '01',
       title: 'SCAN ENVIRONMENT',
       sectionId: 'lidar',
-      duration: 6500,
+      duration: 11000,
       caption: "ROVAC's rotating LiDAR dome fires 1,800 infrared pulses per second at 300 RPM, measuring time-of-flight distances to walls and obstacles.",
       onStart: () => {
         const resetBtn = document.getElementById('lidar-reset-btn');
@@ -27,7 +27,7 @@
       num: '02',
       title: 'BUILD MAP',
       sectionId: 'lidar',
-      duration: 6500,
+      duration: 11000,
       caption: "As scan data accumulates in real-time, ROVAC constructs a precise 360° point-cloud map of the floor plan.",
       onStart: () => {
         const obsBtn = document.getElementById('lidar-obstacle-btn');
@@ -38,7 +38,7 @@
       num: '03',
       title: 'NAVIGATE',
       sectionId: 'navigation',
-      duration: 7000,
+      duration: 12000,
       caption: "Using the room map, ROVAC plans a systematic boustrophedon (S-pattern) path that guarantees 100% floor coverage without overlapping.",
       onStart: () => {
         const modeBtn = document.getElementById('mode-smart');
@@ -51,7 +51,7 @@
       num: '04',
       title: 'CLEAN',
       sectionId: 'cleaning',
-      duration: 7500,
+      duration: 12000,
       caption: "Four cleaning stages work simultaneously: side brush sweeps edges, dual roller agitates carpet, suction channels debris, and HEPA filter traps fine dust.",
       onStart: () => {
         const playBtn = document.getElementById('cleaning-play-btn');
@@ -62,7 +62,7 @@
       num: '05',
       title: 'AVOID OBSTACLES',
       sectionId: 'obstacle',
-      duration: 7000,
+      duration: 11000,
       caption: "Proximity sensors detect obstacles in real-time. Watch ROVAC dynamically reroute its course before any physical contact occurs.",
       onStart: () => {
         const pauseBtn = document.getElementById('obstacle-pause-btn');
@@ -73,7 +73,7 @@
       num: '06',
       title: 'RETURN & RECHARGE',
       sectionId: 'dock',
-      duration: 8500,
+      duration: 13000,
       caption: "When the battery runs low or cleaning completes, ROVAC autonomously locates its charging dock via IR homing signals, aligns, and begins recharging.",
       onStart: () => {
         const dockBtn = document.getElementById('dock-play-btn');
@@ -234,10 +234,10 @@
     elapsed = 0;
     stageStart = performance.now();
 
-    // 1. Scroll smoothly to target section
+    // 1. Scroll smoothly to target section with proper top offset
     const secEl = document.getElementById(stage.sectionId);
     if (secEl) {
-      secEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      secEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
     // 2. Trigger native section animation
