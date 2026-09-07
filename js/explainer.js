@@ -10,13 +10,13 @@
   const howStartBtn    = document.getElementById('explainer-start-how-btn');
   const navStartBtn    = document.getElementById('explainer-start-nav-btn');
 
-  // Stages Definition (11-13s per stage so viewers can clearly watch each full animation)
+  // Stages Definition (Crisp, perfectly paced durations matching exact animation lengths)
   const STAGES = [
     {
       num: '01',
       title: 'SCAN ENVIRONMENT',
       sectionId: 'lidar',
-      duration: 11000,
+      duration: 15000,
       caption: "ROVAC's rotating LiDAR dome fires 1,800 infrared pulses per second at 300 RPM, measuring time-of-flight distances to walls and obstacles.",
       onStart: () => {
         const resetBtn = document.getElementById('lidar-reset-btn');
@@ -27,7 +27,7 @@
       num: '02',
       title: 'BUILD MAP',
       sectionId: 'lidar',
-      duration: 11000,
+      duration: 15000,
       caption: "As scan data accumulates in real-time, ROVAC constructs a precise 360° point-cloud map of the floor plan.",
       onStart: () => {
         const obsBtn = document.getElementById('lidar-obstacle-btn');
@@ -38,7 +38,7 @@
       num: '03',
       title: 'NAVIGATE',
       sectionId: 'navigation',
-      duration: 12000,
+      duration: 19000,
       caption: "Using the room map, ROVAC plans a systematic boustrophedon (S-pattern) path that guarantees 100% floor coverage without overlapping.",
       onStart: () => {
         const modeBtn = document.getElementById('mode-smart');
@@ -51,7 +51,7 @@
       num: '04',
       title: 'CLEAN',
       sectionId: 'cleaning',
-      duration: 12000,
+      duration: 17000,
       caption: "Four cleaning stages work simultaneously: side brush sweeps edges, dual roller agitates carpet, suction channels debris, and HEPA filter traps fine dust.",
       onStart: () => {
         const playBtn = document.getElementById('cleaning-play-btn');
@@ -62,7 +62,7 @@
       num: '05',
       title: 'AVOID OBSTACLES',
       sectionId: 'obstacle',
-      duration: 11000,
+      duration: 16000,
       caption: "Proximity sensors detect obstacles in real-time. Watch ROVAC dynamically reroute its course before any physical contact occurs.",
       onStart: () => {
         const pauseBtn = document.getElementById('obstacle-pause-btn');
@@ -73,7 +73,7 @@
       num: '06',
       title: 'RETURN & RECHARGE',
       sectionId: 'dock',
-      duration: 13000,
+      duration: 20000,
       caption: "When the battery runs low or cleaning completes, ROVAC autonomously locates its charging dock via IR homing signals, aligns, and begins recharging.",
       onStart: () => {
         const dockBtn = document.getElementById('dock-play-btn');
@@ -97,7 +97,7 @@
   function initUI() {
     if (document.getElementById('explainer-overlay')) return;
 
-    // Create top floating player overlay bar
+    // Create top player overlay bar with integrated stage caption
     overlayEl = document.createElement('div');
     overlayEl.id = 'explainer-overlay';
     overlayEl.className = 'explainer-overlay hidden';
@@ -128,25 +128,19 @@
         </div>
       </div>
 
+      <div class="explainer-caption-bar">
+        <span class="caption-stage-tag" id="explainer-stage-num">01 / 06</span>
+        <span class="caption-stage-title" id="explainer-stage-title">SCAN ENVIRONMENT</span>
+        <span class="caption-sep">&bull;</span>
+        <span class="caption-body" id="explainer-stage-desc"></span>
+      </div>
+
       <div class="explainer-progress-track">
         <div class="explainer-progress-fill" id="explainer-progress-fill"></div>
       </div>
     `;
 
     document.body.appendChild(overlayEl);
-
-    // Create standalone floating caption card at bottom center
-    const captionCard = document.createElement('div');
-    captionCard.id = 'explainer-caption-card';
-    captionCard.className = 'explainer-caption-card hidden';
-    captionCard.innerHTML = `
-      <div class="caption-header">
-        <span class="caption-stage-tag" id="explainer-stage-num">01 / 06</span>
-        <span class="caption-stage-title" id="explainer-stage-title">SCAN ENVIRONMENT</span>
-      </div>
-      <p class="caption-body" id="explainer-stage-desc"></p>
-    `;
-    document.body.appendChild(captionCard);
 
     // Completion modal
     completionModal = document.createElement('div');
@@ -211,8 +205,6 @@
     isPaused = false;
     completionModal.classList.add('hidden');
     overlayEl.classList.remove('hidden');
-    const captionCard = document.getElementById('explainer-caption-card');
-    if (captionCard) captionCard.classList.remove('hidden');
     playPauseBtn.textContent = 'Pause';
     goToStage(startIdx);
   }
@@ -224,8 +216,15 @@
     if (progressRaf) cancelAnimationFrame(progressRaf);
     if (overlayEl) overlayEl.classList.add('hidden');
     if (completionModal) completionModal.classList.add('hidden');
-    const captionCard = document.getElementById('explainer-caption-card');
-    if (captionCard) captionCard.classList.add('hidden');
+  }
+
+  function getElementOffsetTop(el) {
+    let top = 0;
+    while (el) {
+      top += el.offsetTop;
+      el = el.offsetParent;
+    }
+    return top;
   }
 
   function goToStage(idx) {
@@ -243,10 +242,20 @@
     elapsed = 0;
     stageStart = performance.now();
 
-    // 1. Scroll smoothly to target section with proper top offset
+    // 1. Scroll directly to target canvas animation element with ~85px gap so section title is visible & canvas is centered
     const secEl = document.getElementById(stage.sectionId);
     if (secEl) {
-      secEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const targetEl = secEl.querySelector('canvas') || secEl.querySelector('.lidar-body, .nav-demo-body, .cleaning-body, .obstacle-body, .dock-body') || secEl;
+      const overlayH = overlayEl ? overlayEl.offsetHeight : 110;
+      const absoluteTop = getElementOffsetTop(targetEl);
+      
+      // Position top edge of animation canvas ~85px below top player bar to show title & center canvas
+      const targetScrollY = Math.max(0, absoluteTop - overlayH - 85);
+
+      window.scrollTo({
+        top: targetScrollY,
+        behavior: 'smooth'
+      });
     }
 
     // 2. Trigger native section animation
