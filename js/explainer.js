@@ -17,7 +17,7 @@
       title: 'SCAN ENVIRONMENT',
       sectionId: 'lidar',
       duration: 15000,
-      caption: "ROVAC's rotating LiDAR dome fires 1,800 infrared pulses per second at 300 RPM, measuring time-of-flight distances to walls and obstacles.",
+      caption: "ROVAC's simulated rotating LiDAR dome models 1,800 infrared distance samples per second at 300 RPM to map surrounding obstacles using time-of-flight principles.",
       onStart: () => {
         const resetBtn = document.getElementById('lidar-reset-btn');
         if (resetBtn) resetBtn.click();
@@ -28,7 +28,7 @@
       title: 'BUILD MAP',
       sectionId: 'lidar',
       duration: 15000,
-      caption: "As scan data accumulates in real-time, ROVAC constructs a precise 360° point-cloud map of the floor plan.",
+      caption: "As scan data accumulates in real-time, ROVAC constructs a 360° point-cloud representation of the simulated floor plan.",
       onStart: () => {
         const obsBtn = document.getElementById('lidar-obstacle-btn');
         if (obsBtn && !obsBtn.textContent.includes('Remove')) obsBtn.click();
@@ -39,7 +39,7 @@
       title: 'NAVIGATE',
       sectionId: 'navigation',
       duration: 19000,
-      caption: "Using the room map, ROVAC plans a systematic boustrophedon (S-pattern) path that guarantees 100% floor coverage without overlapping.",
+      caption: "Using the room map, ROVAC plans a systematic boustrophedon (S-pattern) path designed to achieve comprehensive floor coverage with minimal overlap.",
       onStart: () => {
         const modeBtn = document.getElementById('mode-smart');
         const restartBtn = document.getElementById('nav-restart-btn');
@@ -52,7 +52,7 @@
       title: 'CLEAN',
       sectionId: 'cleaning',
       duration: 17000,
-      caption: "Four cleaning stages work simultaneously: side brush sweeps edges, dual roller agitates carpet, suction channels debris, and HEPA filter traps fine dust.",
+      caption: "Four cleaning stages operate in coordination: side brush sweeps edges, dual roller agitates carpet fibers, suction channels debris, and HEPA filtration collects fine particles.",
       onStart: () => {
         const playBtn = document.getElementById('cleaning-play-btn');
         if (playBtn) playBtn.click();
@@ -63,7 +63,7 @@
       title: 'AVOID OBSTACLES',
       sectionId: 'obstacle',
       duration: 16000,
-      caption: "Proximity sensors detect obstacles in real-time. Watch ROVAC dynamically reroute its course before any physical contact occurs.",
+      caption: "Proximity sensors detect obstacles in real-time. Watch ROVAC dynamically reroute its course before physical contact occurs.",
       onStart: () => {
         const pauseBtn = document.getElementById('obstacle-pause-btn');
         if (pauseBtn && pauseBtn.textContent.includes('Resume')) pauseBtn.click();
@@ -74,7 +74,7 @@
       title: 'RETURN & RECHARGE',
       sectionId: 'dock',
       duration: 20000,
-      caption: "When the battery runs low or cleaning completes, ROVAC autonomously locates its charging dock via IR homing signals, aligns, and begins recharging.",
+      caption: "When battery reaches threshold or cycle completes, ROVAC locates its charging station via IR homing signals, aligns, and initiates recharging.",
       onStart: () => {
         const dockBtn = document.getElementById('dock-play-btn');
         if (dockBtn && !dockBtn.disabled) dockBtn.click();
