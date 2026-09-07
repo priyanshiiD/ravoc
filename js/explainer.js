@@ -131,17 +131,22 @@
       <div class="explainer-progress-track">
         <div class="explainer-progress-fill" id="explainer-progress-fill"></div>
       </div>
-
-      <div class="explainer-caption-card" id="explainer-caption-card">
-        <div class="caption-header">
-          <span class="caption-stage-tag" id="explainer-stage-num">01 / 06</span>
-          <span class="caption-stage-title" id="explainer-stage-title">SCAN ENVIRONMENT</span>
-        </div>
-        <p class="caption-body" id="explainer-stage-desc"></p>
-      </div>
     `;
 
     document.body.appendChild(overlayEl);
+
+    // Create standalone floating caption card at bottom center
+    const captionCard = document.createElement('div');
+    captionCard.id = 'explainer-caption-card';
+    captionCard.className = 'explainer-caption-card hidden';
+    captionCard.innerHTML = `
+      <div class="caption-header">
+        <span class="caption-stage-tag" id="explainer-stage-num">01 / 06</span>
+        <span class="caption-stage-title" id="explainer-stage-title">SCAN ENVIRONMENT</span>
+      </div>
+      <p class="caption-body" id="explainer-stage-desc"></p>
+    `;
+    document.body.appendChild(captionCard);
 
     // Completion modal
     completionModal = document.createElement('div');
@@ -206,6 +211,8 @@
     isPaused = false;
     completionModal.classList.add('hidden');
     overlayEl.classList.remove('hidden');
+    const captionCard = document.getElementById('explainer-caption-card');
+    if (captionCard) captionCard.classList.remove('hidden');
     playPauseBtn.textContent = 'Pause';
     goToStage(startIdx);
   }
@@ -217,6 +224,8 @@
     if (progressRaf) cancelAnimationFrame(progressRaf);
     if (overlayEl) overlayEl.classList.add('hidden');
     if (completionModal) completionModal.classList.add('hidden');
+    const captionCard = document.getElementById('explainer-caption-card');
+    if (captionCard) captionCard.classList.add('hidden');
   }
 
   function goToStage(idx) {
