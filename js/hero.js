@@ -41,14 +41,24 @@
   }
 
   function createParticle() {
-    const orbitR  = 90 + Math.random() * 160;
+    const orbitR  = 70 + Math.random() * 50; // tight planetary halo right around robot body
     const angle   = Math.random() * Math.PI * 2;
-    const speed   = (0.002 + Math.random() * 0.004) * (Math.random() < 0.5 ? 1 : -1);
-    const size    = 1 + Math.random() * 2.5;
-    const opacity = 0.2 + Math.random() * 0.6;
+    const speed   = (0.0025 + Math.random() * 0.004) * (Math.random() < 0.5 ? 1 : -1);
+    const size    = 1 + Math.random() * 2.2;
+    const opacity = 0.25 + Math.random() * 0.6;
     const color   = Math.random() < 0.6 ? '#00D4FF' :
                     Math.random() < 0.5 ? '#7B4FFF' : '#00E58A';
     return { orbitR, angle, speed, size, opacity, color, trail: [] };
+  }
+
+  function getRobotCenter(W, H) {
+    if (W > 1100) {
+      return { cx: W * 0.83, cy: H * 0.48, R: Math.min(W, H) * 0.12 };
+    } else if (W > 768) {
+      return { cx: W * 0.82, cy: H * 0.48, R: Math.min(W, H) * 0.10 };
+    } else {
+      return { cx: W * 0.5, cy: H * 0.78, R: Math.min(W, H) * 0.10 };
+    }
   }
 
   function loop() {
@@ -62,10 +72,12 @@
     ctx.fillStyle = '#080C14';
     ctx.fillRect(0, 0, W, H);
 
+    const pos = getRobotCenter(W, H);
+
     drawGrid(ctx, W, H, t);
     drawVignette(ctx, W, H);
-    updateAndDrawParticles(ctx, W, H, t);
-    drawRobotHero(ctx, W, H, t);
+    updateAndDrawParticles(ctx, W, H, pos.cx, pos.cy, pos.R, t);
+    drawRobotHero(ctx, W, H, pos, t);
   }
 
   function drawGrid(ctx, W, H, t) {
@@ -114,14 +126,13 @@
     ctx.fillRect(0, 0, W, H);
   }
 
-  function updateAndDrawParticles(ctx, W, H, t) {
-    const cx = W / 2, cy = H / 2;
-
+  function updateAndDrawParticles(ctx, W, H, cx, cy, R, t) {
     for (const p of particles) {
       p.angle += p.speed;
 
-      const x = cx + Math.cos(p.angle) * p.orbitR;
-      const y = cy + Math.sin(p.angle) * p.orbitR * 0.42; // elliptical orbit
+      const orbitRadius = p.orbitR * (R / 100);
+      const x = cx + Math.cos(p.angle) * orbitRadius;
+      const y = cy + Math.sin(p.angle) * orbitRadius * 0.42; // elliptical orbit around robot center
 
       // Trail
       p.trail.push({ x, y });
@@ -152,11 +163,11 @@
     }
   }
 
-  function drawRobotHero(ctx, W, H, t) {
-    // Robot sits naturally on the right side of the expanded hero text
-    const cx = W * 0.68;
-    const cy = H * 0.5;
-    const R  = Math.min(W, H) * 0.14;
+  function drawRobotHero(ctx, W, H, pos, t) {
+    // Robot sits cleanly on the right side of the hero text
+    const cx = pos.cx;
+    const cy = pos.cy;
+    const R  = pos.R;
 
     // Slow drift
     const drift = Math.sin(t * 0.7) * 4;

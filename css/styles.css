@@ -276,12 +276,13 @@ section {
   flex-direction: column;
   gap: 0.25rem;
   margin-bottom: 1.5rem;
+  max-width: 540px;
   animation: fadeSlideUp 1s var(--ease) 0.5s both;
 }
 
 .hero-title-rovac {
   font-family: var(--font-display);
-  font-size: clamp(4.5rem, 9.5vw, 8rem);
+  font-size: clamp(4.2rem, 8.5vw, 7.5rem);
   font-weight: 700;
   letter-spacing: -0.04em;
   line-height: 1;
@@ -299,7 +300,7 @@ section {
 
 .hero-title-sub {
   font-family: var(--font-display);
-  font-size: clamp(1.35rem, 2.8vw, 2.125rem);
+  font-size: clamp(1.25rem, 2.5vw, 2rem);
   font-weight: 400;
   letter-spacing: -0.01em;
   color: var(--text-secondary);
@@ -307,8 +308,8 @@ section {
 }
 
 .hero-description {
-  max-width: 620px;
-  font-size: 1.125rem;
+  max-width: 520px;
+  font-size: 1.0625rem;
   line-height: 1.7;
   color: var(--text-secondary);
   margin-bottom: 2rem;
@@ -1687,4 +1688,26 @@ section {
   justify-content: center;
   gap: 1rem;
 }
+
+/* Responsive Media Queries */
+@media (max-width: 768px) {
+  .hero-content {
+    align-items: center;
+    text-align: center;
+    padding-top: calc(var(--nav-h) + 1rem);
+    justify-content: flex-start;
+  }
+  .hero-title {
+    max-width: 100%;
+    align-items: center;
+  }
+  .hero-description {
+    max-width: 100%;
+  }
+  .hero-cta {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+
 
