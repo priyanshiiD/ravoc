@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ROVAC&trade; | Intelligent Cleaning. Reimagined.</title>
+  <meta name="description" content="ROVAC&trade; is a next-generation autonomous robot vacuum. Explore its components, 360&deg; LiDAR sensing technology, navigation intelligence, and precision cleaning system through this interactive animated product explainer.">
+  <meta property="og:title" content="ROVAC&trade; | Animated Product Explainer">
+  <meta property="og:description" content="Interactive animated product explainer for ROVAC&trade; -- a next-generation autonomous robot vacuum cleaner.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/design-system.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Scroll Progress -->
+  <div id="scroll-progress" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="main-nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a class="nav-logo" href="#hero" aria-label="ROVAC home">
+        <span class="nav-logo-mark">R</span>OVAC<span class="nav-logo-tm">&trade;</span>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a class="nav-link" href="#how-it-works" data-section="how-it-works">How It Works</a></li>
+        <li><a class="nav-link" href="#anatomy"    data-section="anatomy">Components</a></li>
+        <li><a class="nav-link" href="#lidar"      data-section="lidar">LiDAR</a></li>
+        <li><a class="nav-link" href="#navigation" data-section="navigation">Navigation</a></li>
+        <li><a class="nav-link" href="#cleaning"   data-section="cleaning">Cleaning</a></li>
+        <li><a class="nav-link" href="#features"   data-section="features">Features</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ====================================================
+       SECTION 0 -- CINEMATIC HERO
+  ==================================================== -->
+  <section id="hero" class="section section-hero" aria-label="Hero introduction">
+    <canvas id="hero-canvas" class="hero-canvas" aria-hidden="true"></canvas>
+
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="hero-badge-dot" aria-hidden="true"></span>
+        Animated Product Explainer System
+      </div>
+
+      <h1 class="hero-title">
+        <span class="hero-title-rovac">ROVAC<span class="hero-tm">&trade;</span></span>
+        <span class="hero-title-sub">Intelligent Cleaning.<br>Reimagined.</span>
+      </h1>
+
+      <p class="hero-description">
+        An autonomous robot vacuum engineered with 360&deg; LiDAR mapping,
+        multi-sensor obstacle avoidance, and precision four-stage cleaning --
+        all working seamlessly without human intervention.
+      </p>
+
+      <a href="#how-it-works" class="hero-cta" id="hero-cta-btn">
+        Explore the System
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M8 3v10M3 8l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+
+    <div class="hero-scroll-hint" aria-hidden="true">
+      <span>Scroll to explore</span>
+      <div class="hero-scroll-mouse">
+        <div class="hero-scroll-wheel"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================
+       SECTION 1 -- PRODUCT OVERVIEW
+  ==================================================== -->
+  <section id="product" class="section section-product" aria-label="Product overview">
+    <div class="product-inner">
+      <div class="product-text">
+        <span class="section-kicker">The Product</span>
+        <h2 class="section-title">Meet ROVAC&trade;</h2>
+        <p class="section-desc">
+          ROVAC is an autonomous floor-cleaning robot that combines cutting-edge
+          sensing technology with intelligent navigation to deliver hands-free,
+          systematic cleaning of your entire home every single day.
+        </p>
+        <p class="section-desc" style="margin-top:1rem;">
+          At its core, ROVAC uses a 360&deg; rotating LiDAR sensor to map your
+          environment in real-time, plan optimal cleaning paths, detect and avoid
+          obstacles, and automatically return to its charging dock when the job is done.
+        </p>
+        <div class="product-tags">
+          <span class="tag">Autonomous Navigation</span>
+          <span class="tag">360&deg; LiDAR</span>
+          <span class="tag">Smart Mapping</span>
+          <span class="tag">Auto-Dock</span>
+          <span class="tag">HEPA Filtration</span>
+        </div>
+      </div>
+
+      <div class="product-stats">
+        <div class="stat-card" role="figure" aria-label="Battery life: 120 minutes">
+          <div>
+            <span class="stat-value" data-target="120">0</span><span class="stat-unit">min</span>
+          </div>
+          <span class="stat-label">Battery Life</span>
+        </div>
+        <div class="stat-card" role="figure" aria-label="Suction power specification">
+          <div>
+            <span class="stat-value" data-target="2700">0</span><span class="stat-unit">Pa</span>
+          </div>
+          <span class="stat-label">Suction Power</span>
+        </div>
+        <div class="stat-card" role="figure" aria-label="LiDAR coverage: 360 degrees">
+          <div>
+            <span class="stat-value" data-target="360">0</span><span class="stat-unit">&deg;</span>
+          </div>
+          <span class="stat-label">LiDAR Coverage</span>
+        </div>
+        <div class="stat-card" role="figure" aria-label="Floor coverage: 98 percent">
+          <div>
+            <span class="stat-value" data-target="98">0</span><span class="stat-unit">%</span>
+          </div>
+          <span class="stat-label">Floor Coverage</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================
+       SECTION 2 -- HOW ROVAC WORKS (sequential flow)
+  ==================================================== -->
+  <section id="how-it-works" class="section section-how" aria-label="How ROVAC works">
+    <div class="how-header">
+      <span class="section-kicker">Interactive Animated Product Explainer</span>
+      <h2 class="section-title">How ROVAC Works</h2>
+      <p class="section-desc">
+        Every cleaning cycle follows the same intelligent sequence. Each step below
+        is fully animated and interactive in this explainer -- scroll down to explore each one live.
+      </p>
+    </div>
+
+    <div class="how-flow" role="list" aria-label="ROVAC operational sequence">
+
+      <a class="how-step reveal-item" href="#lidar" role="listitem" aria-label="Step 1: Scan Environment">
+        <div class="how-step-num">01</div>
+        <div class="how-step-icon" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <circle cx="14" cy="14" r="10" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
+            <circle cx="14" cy="14" r="2" fill="currentColor"/>
+            <path d="M14 4v4M14 20v4M4 14h4M20 14h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M7.8 7.8l2.8 2.8M17.4 17.4l2.8 2.8" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity="0.5"/>
+          </svg>
+        </div>
+        <div class="how-step-content">
+          <div class="how-step-title">Scan Environment</div>
+          <div class="how-step-desc">
+            ROVAC's rotating LiDAR sensor fires infrared beams in all directions,
+            measuring distances to walls, furniture, and obstacles in real-time.
+          </div>
+          <div class="how-step-link">See it live &rarr; LiDAR section</div>
+        </div>
+      </a>
+
+      <div class="how-step-connector" aria-hidden="true"></div>
+
+      <a class="how-step reveal-item" href="#lidar" role="listitem" aria-label="Step 2: Build Map">
+        <div class="how-step-num">02</div>
+        <div class="how-step-icon" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <rect x="4" y="4" width="20" height="20" rx="3" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
+            <path d="M4 10h20M10 4v20" stroke="currentColor" stroke-width="1" opacity="0.3"/>
+            <circle cx="17" cy="17" r="2" fill="currentColor"/>
+            <circle cx="12" cy="12" r="1.5" fill="currentColor" opacity="0.5"/>
+            <circle cx="19" cy="10" r="1.5" fill="currentColor" opacity="0.5"/>
+          </svg>
+        </div>
+        <div class="how-step-content">
+          <div class="how-step-title">Build Map</div>
+          <div class="how-step-desc">
+            As scan data accumulates, ROVAC builds a 2D map of the room -- marking
+            free space, walls, and obstacles -- forming the basis for navigation.
+          </div>
+          <div class="how-step-link">See it live &rarr; LiDAR section</div>
+        </div>
+      </a>
+
+      <div class="how-step-connector" aria-hidden="true"></div>
+
+      <a class="how-step reveal-item" href="#navigation" role="listitem" aria-label="Step 3: Navigate">
+        <div class="how-step-num">03</div>
+        <div class="how-step-icon" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <path d="M6 22L14 6l8 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
+            <path d="M9 16h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="14" cy="6" r="2" fill="currentColor"/>
+          </svg>
+        </div>
+        <div class="how-step-content">
+          <div class="how-step-title">Navigate</div>
+          <div class="how-step-desc">
+            Using the room map, ROVAC plans a systematic boustrophedon (S-pattern)
+            path that covers every area of the floor efficiently without revisiting.
+          </div>
+          <div class="how-step-link">See it live &rarr; Navigation section</div>
+        </div>
+      </a>
+
+      <div class="how-step-connector" aria-hidden="true"></div>
+
+      <a class="how-step reveal-item" href="#cleaning" role="listitem" aria-label="Step 4: Clean">
+        <div class="how-step-num">04</div>
+        <div class="how-step-icon" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <path d="M8 20 Q14 10 20 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+            <circle cx="14" cy="18" r="3" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M10 24h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="how-step-content">
+          <div class="how-step-title">Clean</div>
+          <div class="how-step-desc">
+            As it moves along each path, four cleaning stages work simultaneously:
+            side brush, main roller, suction channel, and HEPA filtration.
+          </div>
+          <div class="how-step-link">See it live &rarr; Cleaning section</div>
+        </div>
+      </a>
+
+      <div class="how-step-connector" aria-hidden="true"></div>
+
+      <a class="how-step reveal-item" href="#obstacle" role="listitem" aria-label="Step 5: Avoid Obstacles">
+        <div class="how-step-num">05</div>
+        <div class="how-step-icon" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <circle cx="14" cy="14" r="6" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M14 8V4M14 24v-4M8 14H4M24 14h-4" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity="0.4"/>
+            <path d="M10 14 Q14 8 18 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
+          </svg>
+        </div>
+        <div class="how-step-content">
+          <div class="how-step-title">Avoid Obstacles</div>
+          <div class="how-step-desc">
+            Infrared proximity sensors detect unexpected objects in real-time.
+            ROVAC slows, calculates a new route, and continues without stopping.
+          </div>
+          <div class="how-step-link">See it live &rarr; Avoidance section</div>
+        </div>
+      </a>
+
+      <div class="how-step-connector" aria-hidden="true"></div>
+
+      <a class="how-step reveal-item" href="#dock" role="listitem" aria-label="Step 6: Return and Recharge">
+        <div class="how-step-num">06</div>
+        <div class="how-step-icon" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <path d="M8 22v-6h12v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
+            <path d="M5 16h18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M12 10l2-4 2 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="14" cy="10" r="2" fill="currentColor"/>
+          </svg>
+        </div>
+        <div class="how-step-content">
+          <div class="how-step-title">Return &amp; Recharge</div>
+          <div class="how-step-desc">
+            When the job is done or battery is low, ROVAC autonomously locates
+            its dock, navigates back, aligns precisely, and begins recharging.
+          </div>
+          <div class="how-step-link">See it live &rarr; Docking section</div>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ====================================================
+       SECTION 3 -- ANATOMY / EXPLODED VIEW
+  ==================================================== -->
+  <section id="anatomy" class="section section-anatomy" aria-label="Component anatomy">
+    <div class="anatomy-header">
+      <span class="section-kicker">Inside ROVAC&trade;</span>
+      <h2 class="section-title">Anatomy of Intelligence</h2>
+      <p class="section-desc">
+        Every component plays a precise role in the system. Explode the view, then hover or
+        tap any part to learn how it contributes to autonomous cleaning.
+      </p>
+    </div>
+
+    <div class="anatomy-body">
+      <div class="anatomy-canvas-wrap">
+        <canvas
+          id="anatomy-canvas"
+          class="anatomy-canvas"
+          aria-label="Interactive exploded component diagram of ROVAC robot vacuum">
+        </canvas>
+      </div>
+
+      <div class="anatomy-info-panel" id="anatomy-info-panel" role="region" aria-live="polite" aria-label="Component information">
+        <div class="anatomy-component-name" id="component-name">Select a Component</div>
+        <div class="anatomy-component-role" id="component-role">
+          Hover over any part of the robot to learn about its function.
+        </div>
+        <div class="anatomy-component-detail" id="component-detail"></div>
+      </div>
+    </div>
+
+    <div class="anatomy-controls">
+      <button class="btn-primary" id="anatomy-explode-btn" aria-label="Explode component view">
+        Explode View
+      </button>
+      <button class="btn-secondary" id="anatomy-assemble-btn" aria-label="Reassemble robot view">
+        Assemble
+      </button>
+    </div>
+  </section>
+
+  <!-- ====================================================
+       SECTION 4 -- LIDAR & SENSING
+  ==================================================== -->
+  <section id="lidar" class="section section-lidar" aria-label="LiDAR sensing system">
+    <div class="lidar-header">
+      <span class="section-kicker">Sensing Technology</span>
+      <h2 class="section-title">360&deg; LiDAR Mapping</h2>
+      <p class="section-desc">
+        ROVAC's rotating LiDAR sensor fires infrared beams at 300 RPM, measuring
+        distance via time-of-flight to build a precise real-time map of the environment.
+        Watch the map build below.
+      </p>
+    </div>
+
+    <div class="lidar-body">
+      <canvas
+        id="lidar-canvas"
+        class="lidar-canvas"
+        aria-label="Interactive LiDAR sensing simulation showing map building">
+      </canvas>
+
+      <div class="lidar-sidebar">
+        <div class="lidar-stat" role="figure" aria-label="Map coverage percentage">
+          <div class="lidar-stat-value" id="lidar-coverage" aria-live="polite">0%</div>
+          <div class="lidar-stat-label">Map Coverage</div>
+        </div>
+        <div class="lidar-stat" role="figure" aria-label="Points mapped count">
+          <div class="lidar-stat-value" id="lidar-points" aria-live="polite">0</div>
+          <div class="lidar-stat-label">Points Mapped</div>
+        </div>
+        <div class="lidar-controls">
+          <button class="btn-primary"    id="lidar-reset-btn">Reset Map</button>
+          <button class="btn-secondary"  id="lidar-obstacle-btn">Add Furniture</button>
+        </div>
+        <div class="lidar-legend" aria-label="Map legend">
+          <div class="legend-item"><span class="legend-dot cyan"   aria-hidden="true"></span>Mapped Wall</div>
+          <div class="legend-item"><span class="legend-dot orange" aria-hidden="true"></span>Detected Obstacle</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================
+       SECTION 5 -- NAVIGATION PATHS
+  ==================================================== -->
+  <section id="navigation" class="section section-navigation" aria-label="Navigation system">
+    <div class="nav-demo-header">
+      <span class="section-kicker">Navigation Intelligence</span>
+      <h2 class="section-title">Systematic Cleaning Paths</h2>
+      <p class="section-desc">
+        Using the room map built by LiDAR, ROVAC plans a boustrophedon cleaning
+        path -- a systematic back-and-forth sweep that guarantees complete floor coverage.
+        Compare it to a simple random walk to see the difference.
+      </p>
+    </div>
+
+    <div class="nav-demo-body">
+      <canvas
+        id="nav-canvas"
+        class="nav-canvas"
+        aria-label="Navigation path simulation showing smart vs random cleaning routes">
+      </canvas>
+
+      <div class="nav-demo-controls">
+        <div class="nav-mode-toggle" role="group" aria-label="Navigation mode selection">
+          <button class="mode-btn active" id="mode-smart"  data-mode="smart"  aria-pressed="true">Smart Path</button>
+          <button class="mode-btn"        id="mode-random" data-mode="random" aria-pressed="false">Random Walk</button>
+        </div>
+        <button class="btn-primary" id="nav-restart-btn">Restart Demo</button>
+        <div class="nav-stats" aria-label="Navigation statistics">
+          <div class="nav-stat">
+            <span class="nav-stat-label">Coverage</span>
+            <span class="nav-stat-value" id="nav-coverage-val" aria-live="polite">0%</span>
+          </div>
+          <div class="nav-stat">
+            <span class="nav-stat-label">Distance</span>
+            <span class="nav-stat-value" id="nav-distance-val" aria-live="polite">0m</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================
+       SECTION 6 -- CLEANING MECHANISM
+  ==================================================== -->
+  <section id="cleaning" class="section section-cleaning" aria-label="Cleaning mechanism">
+    <div class="cleaning-header">
+      <span class="section-kicker">Cleaning System</span>
+      <h2 class="section-title">Four-Stage Debris Removal</h2>
+      <p class="section-desc">
+        ROVAC uses a coordinated four-stage process -- from edge sweeping to HEPA
+        filtration -- to capture every particle on your floor, including fine dust,
+        pet hair, and embedded debris.
+      </p>
+    </div>
+
+    <div class="cleaning-body">
+      <canvas
+        id="cleaning-canvas"
+        class="cleaning-canvas"
+        aria-label="Animated cross-section of the four-stage cleaning mechanism">
+      </canvas>
+
+      <div class="cleaning-steps" role="list" aria-label="Cleaning stages">
+        <div class="cleaning-step" data-step="1" id="step-1" role="listitem">
+          <div class="step-num" aria-hidden="true">01</div>
+          <div class="step-title">Side Brush</div>
+          <div class="step-desc">
+            The angled side brush sweeps debris from corners and edges toward
+            the main intake path, reaching where the body cannot.
+          </div>
+        </div>
+        <div class="cleaning-step" data-step="2" id="step-2" role="listitem">
+          <div class="step-num" aria-hidden="true">02</div>
+          <div class="step-title">Roller Brush</div>
+          <div class="step-desc">
+            The dual-action roller brush agitates carpet fibers and pulls
+            debris off hard floors into the suction channel.
+          </div>
+        </div>
+        <div class="cleaning-step" data-step="3" id="step-3" role="listitem">
+          <div class="step-num" aria-hidden="true">03</div>
+          <div class="step-title">Suction</div>
+          <div class="step-desc">
+            High-powered suction draws all loosened debris upward through
+            the intake channel at speed.
+          </div>
+        </div>
+        <div class="cleaning-step" data-step="4" id="step-4" role="listitem">
+          <div class="step-num" aria-hidden="true">04</div>
+          <div class="step-title">HEPA Collection</div>
+          <div class="step-desc">
+            Debris passes through a HEPA filter that traps fine particles
+            before air exits the system, and is stored in the sealed dustbin.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cleaning-controls">
+      <button class="btn-primary"   id="cleaning-play-btn">Play Animation</button>
+      <button class="btn-secondary" id="cleaning-reset-btn">Reset</button>
+    </div>
+  </section>
+
+  <!-- ====================================================
+       SECTION 7 -- OBSTACLE DETECTION
+  ==================================================== -->
+  <section id="obstacle" class="section section-obstacle" aria-label="Obstacle detection">
+    <div class="obstacle-header">
+      <span class="section-kicker">Obstacle Detection</span>
+      <h2 class="section-title">Intelligent Avoidance</h2>
+      <p class="section-desc">
+        ROVAC combines infrared proximity sensors and the LiDAR map to detect
+        obstacles in real-time and reroute before any contact occurs.
+        Place your own obstacles and watch ROVAC react.
+      </p>
+    </div>
+
+    <div class="obstacle-body">
+      <canvas
+        id="obstacle-canvas"
+        class="obstacle-canvas"
+        aria-label="Live obstacle detection simulation. Click to place obstacles after pressing the button.">
+      </canvas>
+
+      <div class="obstacle-sidebar">
+        <div class="obstacle-status" role="status" aria-live="polite">
+          <div class="status-dot" id="status-dot" aria-hidden="true"></div>
+          <span id="status-text">Navigating freely</span>
+        </div>
+        <div class="obstacle-controls">
+          <button class="btn-primary"   id="obstacle-add-btn">Place Obstacle</button>
+          <button class="btn-secondary" id="obstacle-pause-btn">Pause Navigation</button>
+          <button class="btn-secondary" id="obstacle-clear-btn">Clear All</button>
+        </div>
+        <div class="obstacle-legend" aria-label="Detection legend">
+          <div class="legend-item"><span class="legend-dot cyan"   aria-hidden="true"></span>Proximity Zone</div>
+          <div class="legend-item"><span class="legend-dot orange" aria-hidden="true"></span>Obstacle Detected</div>
+          <div class="legend-item"><span class="legend-dot green"  aria-hidden="true"></span>Free Navigation</div>
+        </div>
+        <p class="obstacle-hint">
+          Press "Place Obstacle", then click anywhere on the room map to add
+          an object and watch ROVAC detect and avoid it.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================
+       SECTION 8 -- AUTO-DOCK
+  ==================================================== -->
+  <section id="dock" class="section section-dock" aria-label="Auto-dock system">
+    <div class="dock-header">
+      <span class="section-kicker">Auto-Dock System</span>
+      <h2 class="section-title">It Knows When to Come Home</h2>
+      <p class="section-desc">
+        When the battery runs low or the cleaning cycle completes, ROVAC autonomously
+        locates its charging dock using IR homing signals, navigates back, aligns
+        precisely, and begins recharging -- completely hands-free.
+      </p>
+    </div>
+
+    <div class="dock-body">
+      <canvas
+        id="dock-canvas"
+        class="dock-canvas"
+        aria-label="Auto-dock sequence animation showing ROVAC returning to its charging station">
+      </canvas>
+
+      <div class="dock-sequence" role="list" aria-label="Docking sequence steps">
+        <div class="dock-step active" id="dock-step-1" role="listitem">
+          <div class="dock-step-icon" aria-hidden="true">&#x1F50B;</div>
+          <div class="dock-step-label">Battery Low</div>
+        </div>
+        <div class="dock-step-arrow" aria-hidden="true">&rarr;</div>
+        <div class="dock-step" id="dock-step-2" role="listitem">
+          <div class="dock-step-icon" aria-hidden="true">&#x1F4E1;</div>
+          <div class="dock-step-label">Locate Dock</div>
+        </div>
+        <div class="dock-step-arrow" aria-hidden="true">&rarr;</div>
+        <div class="dock-step" id="dock-step-3" role="listitem">
+          <div class="dock-step-icon" aria-hidden="true">&#x1F9ED;</div>
+          <div class="dock-step-label">Navigate</div>
+        </div>
+        <div class="dock-step-arrow" aria-hidden="true">&rarr;</div>
+        <div class="dock-step" id="dock-step-4" role="listitem">
+          <div class="dock-step-icon" aria-hidden="true">&#x26A1;</div>
+          <div class="dock-step-label">Charging</div>
+        </div>
+      </div>
+
+      <button class="btn-primary" id="dock-play-btn">Watch Docking Sequence</button>
+    </div>
+  </section>
+
+  <!-- ====================================================
+       SECTION 9 -- FEATURES & BENEFITS
+  ==================================================== -->
+  <section id="features" class="section section-features" aria-label="Features and benefits">
+    <div class="features-header">
+      <span class="section-kicker">Features &amp; Benefits</span>
+      <h2 class="section-title">Everything You Didn't Know<br>You Needed</h2>
+    </div>
+
+    <div class="features-grid" role="list">
+
+      <article class="feature-card" data-delay="0" role="listitem">
+        <div class="feature-icon" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <circle cx="14" cy="14" r="10" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M14 6v8l4 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="14" cy="14" r="2" fill="currentColor"/>
+            <path d="M14 4v2M14 22v2M4 14h2M22 14h2" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity="0.4"/>
+          </svg>
+        </div>
+        <h3 class="feature-title">360&deg; LiDAR Mapping</h3>
+        <p class="feature-desc">
+          Simulates a rotating LiDAR sensor scanning the environment in all directions,
+          building a real-time 2D map used for navigation and avoidance.
+        </p>
+      </article>
+
+      <article class="feature-card" data-delay="100" role="listitem">
+        <div class="feature-icon" style="background:var(--violet-dim); color:var(--violet);" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <path d="M14 4C8.48 4 4 8.48 4 14s4.48 10 10 10 10-4.48 10-10S19.52 4 14 4z" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M9 14l3 3 7-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h3 class="feature-title">Smart Obstacle Avoidance</h3>
+        <p class="feature-desc">
+          Infrared proximity sensor zones detect nearby objects and trigger automatic
+          rerouting -- protecting furniture and the robot itself from contact.
+        </p>
+      </article>
+
+      <article class="feature-card" data-delay="200" role="listitem">
+        <div class="feature-icon" style="background:var(--green-dim); color:var(--green);" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <path d="M14 4v10l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M4 14h4M20 14h4M14 4v-2M14 26v-2" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity="0.4"/>
+            <circle cx="14" cy="14" r="10" stroke="currentColor" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <h3 class="feature-title">Auto-Dock &amp; Recharge</h3>
+        <p class="feature-desc">
+          ROVAC autonomously navigates back to its dock station when the battery
+          is low, aligns with the charging contacts, and recharges hands-free.
+        </p>
+      </article>
+
+      <article class="feature-card" data-delay="300" role="listitem">
+        <div class="feature-icon" style="background:var(--orange-dim); color:var(--orange);" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <path d="M8 24V10M14 24V4M20 24V14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3 class="feature-title">High-Power Suction</h3>
+        <p class="feature-desc">
+          A powerful suction motor draws loosened debris upward through the intake
+          channel at high velocity, effective on hard floors and carpet alike.
+        </p>
+      </article>
+
+      <article class="feature-card" data-delay="400" role="listitem">
+        <div class="feature-icon" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <rect x="4" y="4" width="20" height="20" rx="4" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="9"  cy="9"  r="1.5" fill="currentColor" opacity="0.5"/>
+            <circle cx="14" cy="9"  r="1.5" fill="currentColor" opacity="0.5"/>
+            <circle cx="19" cy="9"  r="1.5" fill="currentColor" opacity="0.5"/>
+            <circle cx="9"  cy="14" r="1.5" fill="currentColor" opacity="0.5"/>
+            <circle cx="14" cy="14" r="1.5" fill="currentColor"/>
+            <circle cx="19" cy="14" r="1.5" fill="currentColor" opacity="0.5"/>
+            <circle cx="9"  cy="19" r="1.5" fill="currentColor" opacity="0.5"/>
+            <circle cx="14" cy="19" r="1.5" fill="currentColor" opacity="0.5"/>
+            <circle cx="19" cy="19" r="1.5" fill="currentColor" opacity="0.5"/>
+          </svg>
+        </div>
+        <h3 class="feature-title">HEPA Filtration</h3>
+        <p class="feature-desc">
+          A HEPA-grade filter inside the dustbin traps fine particles before exhaust
+          air exits -- keeping the air clean as the robot cleans the floor.
+        </p>
+      </article>
+
+      <article class="feature-card" data-delay="500" role="listitem">
+        <div class="feature-icon" style="background:var(--violet-dim); color:var(--violet);" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <rect x="4" y="6"  width="20" height="16" rx="3" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M9 12h10M9 16h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3 class="feature-title">Scheduled Cleaning</h3>
+        <p class="feature-desc">
+          Set it once. ROVAC cleans automatically on your schedule --
+          daily, weekly, or whenever you need -- entirely hands-free.
+        </p>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ====================================================
+       FOOTER
+  ==================================================== -->
+
+  <footer class="footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo">ROVAC<span class="footer-tm">&trade;</span></div>
+        <div class="footer-tagline">Intelligent Cleaning. Reimagined.</div>
+      </div>
+      <div class="footer-meta">
+        <div class="footer-credit">Animated Product Explainer System</div>
+        <div class="footer-tech">HTML5 Canvas &middot; CSS Animations &middot; Vanilla JavaScript</div>
+        <div class="footer-tech" style="margin-top:0.25rem; font-size:0.75rem; color:var(--text-muted);">
+          Concepts: 2D Transforms &middot; Ray Casting &middot; Particle Systems &middot; Animation Loops
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts (load order matters) -->
+  <script src="js/robot.js"></script>
+  <script src="js/hero.js"></script>
+  <script src="js/anatomy.js"></script>
+  <script src="js/lidar.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/cleaning.js"></script>
+  <script src="js/obstacle.js"></script>
+  <script src="js/dock.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>
