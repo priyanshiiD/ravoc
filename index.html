@@ -33,6 +33,7 @@
         <li><a class="nav-link" href="#navigation" data-section="navigation">Navigation</a></li>
         <li><a class="nav-link" href="#cleaning"   data-section="cleaning">Cleaning</a></li>
         <li><a class="nav-link" href="#features"   data-section="features">Features</a></li>
+        <li><button class="nav-explainer-btn" id="explainer-start-nav-btn" aria-label="Watch full animated explainer video">&#x25B6; Play Explainer</button></li>
       </ul>
     </div>
   </nav>
@@ -60,12 +61,17 @@
         all working seamlessly without human intervention.
       </p>
 
-      <a href="#how-it-works" class="hero-cta" id="hero-cta-btn">
-        Explore the System
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-          <path d="M8 3v10M3 8l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </a>
+      <div class="hero-actions">
+        <a href="#how-it-works" class="hero-cta" id="hero-cta-btn">
+          Explore the System
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M8 3v10M3 8l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <button class="hero-cta-secondary" id="explainer-start-hero-btn" aria-label="Watch full animated explainer video">
+          &#x25B6; Watch Full Explainer Video
+        </button>
+      </div>
     </div>
 
     <div class="hero-scroll-hint" aria-hidden="true">
@@ -140,9 +146,11 @@
       <span class="section-kicker">Interactive Animated Product Explainer</span>
       <h2 class="section-title">How ROVAC Works</h2>
       <p class="section-desc">
-        Every cleaning cycle follows the same intelligent sequence. Each step below
-        is fully animated and interactive in this explainer -- scroll down to explore each one live.
+        Every cleaning cycle follows the same intelligent sequence. Watch the full guided video explanation or scroll down to explore each stage interactively.
       </p>
+      <div class="how-header-actions" style="margin-top:1.5rem;">
+        <button class="btn-explainer-play" id="explainer-start-how-btn" aria-label="Watch guided animated explainer video">&#x25B6; Watch Guided Animated Explainer</button>
+      </div>
     </div>
 
     <div class="how-flow" role="list" aria-label="ROVAC operational sequence">
@@ -693,6 +701,7 @@
   <script src="js/cleaning.js"></script>
   <script src="js/obstacle.js"></script>
   <script src="js/dock.js"></script>
+  <script src="js/explainer.js"></script>
   <script src="js/main.js"></script>
 
 </body>
